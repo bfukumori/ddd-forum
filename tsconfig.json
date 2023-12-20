@@ -9,6 +9,7 @@
     "paths": {
       "@domain/*": ["./src/domain/*"],
       "@core/*": ["./src/core/*"]
-    }
+    },
+    "types": ["vitest/globals"]
   }
 }
