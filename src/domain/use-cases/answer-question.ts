@@ -1,4 +1,4 @@
-import { Answer } from '../entities/answer';
+import { Answer } from '@domain/entities/answer';
 
 interface AnswerQuestionUseCaseRequest {
   instructorId: string;
