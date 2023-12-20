@@ -4,12 +4,14 @@
   "description": "Forum created using DDD and Clean Code for learning purposes",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "vitest run",
+    "test:watch": "vitest --watch"
   },
   "author": "Bruno Fukumori",
   "license": "ISC",
   "devDependencies": {
     "@types/node": "^20.10.5",
-    "typescript": "^5.3.3"
+    "typescript": "^5.3.3",
+    "vitest": "^1.1.0"
   }
 }
