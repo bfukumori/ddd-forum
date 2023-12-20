@@ -7,7 +7,8 @@
     "strict": true,
     "baseUrl": ".",
     "paths": {
-      "@domain/*": ["./src/domain/*"]
+      "@domain/*": ["./src/domain/*"],
+      "@core/*": ["./src/core/*"]
     }
   }
 }
