@@ -1,5 +1,5 @@
 export class Slug {
-  constructor(public value: string) {}
+  private constructor(public value: string) {}
   /**
    * Receives a string and normalize it as a slug.
    *
@@ -7,6 +7,11 @@ export class Slug {
    *
    * @param text
    */
+
+  static create(slug: string): Slug {
+    return new Slug(slug);
+  }
+
   static createFromText(text: string): Slug {
     const slugText = text
       .normalize('NFKD')
