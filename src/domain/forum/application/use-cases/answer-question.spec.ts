@@ -1,6 +1,6 @@
+import { type Answer } from '@domain/forum/enterprise/entities/answer';
 import { AnswerQuestionUseCase } from './answer-question';
-import { type AnswersRepository } from '@domain/repositories/answers-repository';
-import { type Answer } from '@domain/entities/answer';
+import { type AnswersRepository } from '@domain/forum/application/repositories/answers-repository';
 
 const fakeAnswersRepository: AnswersRepository = {
   create: async (answer: Answer): Promise<void> => {},
