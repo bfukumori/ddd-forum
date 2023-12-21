@@ -8,7 +8,8 @@
     "baseUrl": ".",
     "paths": {
       "@domain/*": ["./src/domain/*"],
-      "@core/*": ["./src/core/*"]
+      "@core/*": ["./src/core/*"],
+      "@test/*": ["./test"]
     },
     "types": ["vitest/globals"]
   }
