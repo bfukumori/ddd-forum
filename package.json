@@ -6,17 +6,28 @@
   "type": "module",
   "scripts": {
     "test": "vitest run",
-    "test:watch": "vitest --watch"
+    "test:watch": "vitest --watch",
+    "lint": "eslint src --ext .ts",
+    "lint:fix": "eslint src --ext .ts --fix"
   },
   "author": "Bruno Fukumori",
   "license": "ISC",
   "devDependencies": {
     "@types/node": "^20.10.5",
+    "@typescript-eslint/eslint-plugin": "^6.15.0",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-config-standard-with-typescript": "^43.0.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-n": "^16.5.0",
+    "eslint-plugin-prettier": "^5.1.0",
+    "eslint-plugin-promise": "^6.1.1",
+    "prettier": "^3.1.1",
     "typescript": "^5.3.3",
+    "vite-tsconfig-paths": "^4.2.2",
     "vitest": "^1.1.0"
   },
   "dependencies": {
-    "dayjs": "^1.11.10",
-    "vite-tsconfig-paths": "^4.2.2"
+    "dayjs": "^1.11.10"
   }
 }

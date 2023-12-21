@@ -7,7 +7,7 @@ export class Slug {
    *
    * @param text
    */
-  static createFromText(text: string) {
+  static createFromText(text: string): Slug {
     const slugText = text
       .normalize('NFKD')
       .toLowerCase()

@@ -1,7 +1,7 @@
 import { UniqueEntityID } from './unique-entity-id';
 
 export class Entity<Props> {
-  #id: UniqueEntityID;
+  readonly #id: UniqueEntityID;
   _props: Props;
 
   protected constructor(props: Props, id?: UniqueEntityID) {
