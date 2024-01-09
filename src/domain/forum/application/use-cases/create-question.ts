@@ -3,6 +3,7 @@ import { Question } from '@domain/forum/enterprise/entities/question';
 import { type QuestionsRepository } from '../repositories/questions-repository';
 import { right, type Either } from '@core/either';
 import { QuestionAttachment } from '@domain/forum/enterprise/entities/question-attachment';
+import { QuestionAttachmentList } from '@domain/forum/enterprise/entities/question-attachment-list';
 
 interface CreateQuestionUseCaseRequest {
   authorId: string;
@@ -40,7 +41,7 @@ export class CreateQuestionUseCase {
       });
     });
 
-    question.attachments = questionAttachments;
+    question.attachments = new QuestionAttachmentList(questionAttachments);
 
     await this.questionsRepository.create(question);
 
