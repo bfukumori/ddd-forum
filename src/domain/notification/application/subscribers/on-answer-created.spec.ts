@@ -61,7 +61,7 @@ describe('On answer created', () => {
     await inMemoryQuestionsRepository.create(question);
     await inMemoryAnswersRepository.create(answer);
 
-    await vi.waitFor(() => {
+    void vi.waitFor(() => {
       expect(sendNotificationExecuteSpy).toHaveBeenCalled();
     });
   });
