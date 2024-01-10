@@ -29,11 +29,11 @@ export class OnAnswerCreated implements EventHandler {
 
     if (question !== null) {
       await this.sendNotificationUseCase.execute({
-        content: answer.excerpt,
         recipientId: question?.authorId.toString(),
         title: `Nova resposta em "${question.title
           .substring(0, 40)
           .concat('...')}"`,
+        content: answer.excerpt,
       });
     }
   }

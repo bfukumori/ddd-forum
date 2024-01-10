@@ -11,7 +11,7 @@ import {
 import { InMemoryNotificationsRepository } from 'test/repositories/in-memory-notifications-repository';
 import { makeQuestion } from 'test/factories/make-question';
 import { type MockInstance } from 'vitest';
-import { OnAnswerCreated } from './on-answer-created';
+import { OnQuestionBestAnswerChosen } from './on-question-best-answer-chosen';
 
 let inMemoryQuestionsRepository: InMemoryQuestionsRepository;
 let inMemoryAnswersRepository: InMemoryAnswersRepository;
@@ -25,7 +25,7 @@ let sendNotificationExecuteSpy: MockInstance<
   Promise<SendNotificationUseCaseResponse>
 >;
 
-describe('On answer created', () => {
+describe('On question best answer chosen', () => {
   beforeEach(() => {
     inMemoryNotificationRepository = new InMemoryNotificationsRepository();
 
@@ -49,10 +49,13 @@ describe('On answer created', () => {
 
     sendNotificationExecuteSpy = vi.spyOn(sendNotificationUseCase, 'execute');
     // eslint-disable-next-line no-new
-    new OnAnswerCreated(inMemoryQuestionsRepository, sendNotificationUseCase);
+    new OnQuestionBestAnswerChosen(
+      inMemoryAnswersRepository,
+      sendNotificationUseCase
+    );
   });
 
-  it('should send a notification when an answer is created', async () => {
+  it('should send a notification when question has new best answer', async () => {
     const question = makeQuestion();
     const answer = makeAnswer({
       questionId: question.id,
@@ -60,6 +63,10 @@ describe('On answer created', () => {
 
     await inMemoryQuestionsRepository.create(question);
     await inMemoryAnswersRepository.create(answer);
+
+    question.bestAnswerId = answer.id;
+
+    await inMemoryQuestionsRepository.update(question);
 
     await vi.waitFor(() => {
       expect(sendNotificationExecuteSpy).toHaveBeenCalled();
