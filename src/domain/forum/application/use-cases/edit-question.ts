@@ -1,12 +1,12 @@
 import { type Question } from '@domain/forum/enterprise/entities/question';
 import { type QuestionsRepository } from '../repositories/questions-repository';
 import { type Either, left, right } from '@core/either';
-import { NotAllowedError } from './errors/resource-not-allowed-error';
-import { ResourceNotFoundError } from './errors/resource-not-found-error';
+import { ResourceNotFoundError } from '@core/errors/resource-not-found-error';
 import { type QuestionAttachmentsRepository } from '../repositories/question-attachments-repository';
 import { QuestionAttachmentList } from '@domain/forum/enterprise/entities/question-attachment-list';
 import { UniqueEntityID } from '@core/entities/unique-entity-id';
 import { QuestionAttachment } from '@domain/forum/enterprise/entities/question-attachment';
+import { NotAllowedError } from '@core/errors/not-allowed-error';
 
 interface EditQuestionUseCaseRequest {
   title: string;
