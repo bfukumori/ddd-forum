@@ -50,7 +50,7 @@ export class InMemoryQuestionsRepository implements QuestionsRepository {
     );
 
     this.items.splice(questionIndex, 1);
-    void this.questionAttachmentsRepository.deleteManyByQuestionId(questionId);
+    await this.questionAttachmentsRepository.deleteManyByQuestionId(questionId);
   }
 
   async update(question: Question): Promise<void> {

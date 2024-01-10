@@ -12,6 +12,7 @@ import {
 import { type InMemoryNotificationsRepository } from 'test/repositories/in-memory-notifications-repository';
 import { makeQuestion } from 'test/factories/make-question';
 import { type MockInstance } from 'vitest';
+import { waitFor } from 'test/utils/waitFor';
 
 let inMemoryQuestionsRepository: InMemoryQuestionsRepository;
 let inMemoryAnswersRepository: InMemoryAnswersRepository;
@@ -51,7 +52,7 @@ describe('On answer created', () => {
     await inMemoryQuestionsRepository.create(question);
     await inMemoryAnswersRepository.create(answer);
 
-    void vi.waitFor(() => {
+    void waitFor(() => {
       expect(sendNotificationExecuteSpy).toHaveBeenCalled();
     });
   });

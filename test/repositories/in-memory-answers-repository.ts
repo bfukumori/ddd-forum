@@ -44,7 +44,7 @@ export class InMemoryAnswersRepository implements AnswersRepository {
     );
 
     this.items.splice(answerIndex, 1);
-    void this.inMemoryAnswerAttachmentsRepository.deleteManyByAnswerId(
+    await this.inMemoryAnswerAttachmentsRepository.deleteManyByAnswerId(
       answerId
     );
   }
